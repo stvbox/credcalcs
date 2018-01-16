@@ -1,0 +1,13 @@
+.tree-item-li {
+    cursor: pointer;
+    list-style: none;
+    padding: 0;
+    margin: none;
+}
+.tree-item-li:hover {
+    background: blanchedalmond;
+}
+
+.active {
+    background: #d2ffcc;
+}

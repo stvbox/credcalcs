@@ -1,0 +1,14 @@
+<div class="uk-panel uk-panel-box" style="margin: 5px;" >
+  <h2 style="white-space: nowrap;" >Программы кредитования</h2>
+  <ul>
+    <li class="tree-item-li" *ngFor="let tree of items" (click)="onTreeClick(tree)" >
+      <div [ngClass]="{'active': isActive(tree) }" >
+        {{tree.name}}
+      </div>
+    </li>
+  </ul>
+  <div style="text-align: center;" >
+      <button (click)="createProgramm()" class="uk-button uk-button-mini uk-button-primary" type="button">создать</button>
+      <button (click)="deleteProgramm()" class="uk-button uk-button-mini uk-button-primary" type="button">удалит</button>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="tree-node uk-panel-box" [class.selected]="item.selected" [class.solution]="(item.selected && item.taxranges.length)" >
+  <div class="brench-title" >
+    <table width="100%" >
+      <tr>
+        <td></td>
+        <td width="1" *ngIf="isFirstNode" ><span>({{item.ID}})</span></td>
+        <td *ngIf="isFirstNode" class="node-title-cell" ><input [(ngModel)]="item.name" /></td>
+        <td *ngIf="!isFirstNode" >
+          <button class="uk-button uk-button-mini" (click)="moveLeft(item)" ><i class="uk-icon-arrow-left"></i></button>
+          <button class="uk-button uk-button-mini" (click)="moveRight(item)" ><i class="uk-icon-arrow-right"></i></button>
+        </td>
+        <td width="1" >
+            <div class="uk-button-dropdown margin-left-10" data-uk-dropdown="{mode:'click'}">
+                <button class="uk-button uk-button-mini"><i class="uk-icon-caret-down"></i></button>
+                <div class="uk-dropdown uk-dropdown-small">
+                    <ul class="uk-nav uk-nav-dropdown">
+                        <li *ngIf="!isFirstNode" ><a (click)="addCondition()" >добавить условие</a></li>
+                        <li *ngIf="!isFirstNode" ><a (click)="addRange()" >добавить взнос</a></li>
+                        <li><a (click)="addBranch()" >добавить ветвь</a></li>
+                        <li *ngIf="!isFirstNode" ><a (click)="delBranch(item)" >удалить</a></li>
+                        <li *ngIf="isFirstNode" ><a (click)="saveTree()" >сохранить</a></li>
+                    </ul>
+                </div>
+            </div>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="branch-condition" >
+    <div class="condition-item" *ngFor="let condition of item.conditions" >
+      <button class="uk-button uk-button-mini" (click)="removeCondition(item, condition)" ><i class="uk-icon-remove"></i></button>
+      <span>
+          <input [(ngModel)]="condition.title" (change)="onChangeCondition(item, condition)" />
+      </span>
+    </div>
+    <div class="child-tree" >
+      <div *ngIf="isEnd()" >(конечный узел)</div>
+      <app-condition-way *ngFor="let item of item.items" [item]=item ></app-condition-way>
+    </div>
+    <div class="tree-taxes" *ngFor="let tax of item.taxranges" >
+      <button class="uk-button uk-button-mini" (click)="removeTaxRange(item, tax)" ><i class="uk-icon-remove"></i></button>
+      вз.до: <input [(ngModel)]="tax.toTax" />
+      %1: <input [(ngModel)]="tax.tax1" />
+      %2: <input [(ngModel)]="tax.tax2" />
+    </div>
+  </div>
+</div>

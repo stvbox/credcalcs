@@ -1,0 +1,46 @@
+<div class="uk-panel uk-panel-box" style="margin: 5px;" >
+    <h2 style="white-space: nowrap;" >Перечень условий</h2>
+    <table width="100%" >
+        <tr *ngFor="let cond of conditios" >
+            <td>
+                <div class="condition-item" >{{cond.title}}</div>
+            </td>
+            <td><input type="checkbox" (change)="onConditionClick()" [(ngModel)]="cond.selected" /></td>
+        </tr>
+        <tr>
+            <td><hr /></td>
+        </tr>
+        <tr>
+            <td>
+                <div>Размер кредита:</div>
+                <input [(ngModel)]="this.credit" (keyup)="onConditionClick()" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>Взнос:</div>
+                <input [(ngModel)]="this.prepay" (keyup)="onConditionClick()" />
+            </td>
+        </tr>
+        <tr *ngIf="curentNode" >
+            <td>
+                <div>Размер взноса:</div>
+                {{prepayRate}} %
+
+                    <div *ngIf="!taxRange" >
+                        Нет подходящих условий
+                    </div>
+                    <table width="100%" *ngIf="taxRange" >
+                        <tr>
+                            <td>первый %</td>
+                            <td>второй %</td>
+                        </tr>
+                        <tr>
+                            <td>{{taxRange.tax1}}</td>
+                            <td>{{taxRange.tax2}}</td>
+                        </tr>
+                    </table>
+            </td>
+        </tr>
+    </table>
+</div>

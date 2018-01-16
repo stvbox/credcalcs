@@ -1,0 +1,77 @@
+.brench-title h3 {
+    display: inline-block;
+}
+
+.brench-title input {
+    width: auto;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.branch-condition {
+    /*border: 1px solid grey;*/
+}
+
+.start-tree {
+    display: inline-block;
+    border: 1px red solid;
+}
+
+.condition-item {
+    /*border: none;
+    border-bottom: 1px black solid;*/
+    font-style: italic;
+}
+
+.tree-taxes {
+    /*border: 1px blue solid;*/
+}
+
+.tree-taxes input {
+    width: 30px;
+}
+
+.child-tree {
+    /*border: 1px black dashed;*/
+    display: block;
+    vertical-align: top;
+}
+
+.tree-node {
+    display: inline-block;
+    margin: 5px;
+    -webkit-box-shadow: inset 3px 3px 35px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 3px 3px 35px -2px rgba(0,0,0,0.75);
+    box-shadow: inset 3px 3px 35px -2px rgba(0,0,0,0.75);
+    border: 2px solid transparent;
+    border-radius: 7px;
+}
+
+/*.tree-node div {
+    margin: 1px;
+    padding: 1px;
+}*/
+
+app-condition-way {
+    vertical-align: top;
+    display: inline-block;
+    
+}
+
+.selected {
+    border: 2px black dashed;
+}
+
+.solution {
+    /*border: 2px solid #00FA9A;*/
+    border: 2px solid black;
+}
+
+.node-title-cell > input {
+    width: 100%;
+    text-align: center;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
